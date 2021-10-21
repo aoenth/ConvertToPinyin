@@ -1,15 +1,18 @@
 import XCTest
-@testable import ConvertToPinyin
+import ConvertToPinyin
 
 final class ConvertToPinyinTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(ConvertToPinyin().text, "Hello, World!")
+    func test_romanized_englishShouldStayTheSame() {
+        let testString = "abc Hello World"
+        let result = testString.romanized
+
+        XCTAssertEqual(result, testString)
     }
 
-    static var allTests = [
-        ("testExample", testExample),
-    ]
+    func test_romanized_chineseShouldBeRomanized() {
+        let testString = "你好"
+        let result = testString.romanized
+
+        XCTAssertEqual(result, "ni hao")
+    }
 }
