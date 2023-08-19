@@ -1,7 +1,7 @@
 # ConvertToPinyin
 
 ## Usage
-The package contains an extension on String with computed properties `romanized` and `pinyin`. The difference is that the latter contains the tone marks.
+The package contains an extension on String with computed properties `romanized` and `pinyin`. The difference is that the latter contains the tone marks. Note that the conversion doesn't support Linux.
 ```swift
 import ConvertToPinyin
 
