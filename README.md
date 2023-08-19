@@ -17,5 +17,7 @@ print(string.containsChineseCharacters)
 // true
 
 let character: Character = "福"
+
 print(string.isChineseCharacter)
+// true
 ```

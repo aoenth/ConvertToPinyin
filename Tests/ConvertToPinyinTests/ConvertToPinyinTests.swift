@@ -30,13 +30,23 @@ final class ConvertToPinyinTests: XCTestCase {
         XCTAssertEqual(result, "nǐ hǎo")
     }
     
-    func test_containsChineseCharacter() {
+    func test_containsChineseCharacter_true() {
         let testString = "你好"
         XCTAssert(testString.containsChineseCharacters)
     }
     
-    func test_isChineseCharacter() {
+    func test_containsChineseCharacter_false() {
+        let testString = "hello"
+        XCTAssertFalse(testString.containsChineseCharacters)
+    }
+    
+    func test_isChineseCharacter_true() {
         let character: Character = "福"
         XCTAssert(character.isChineseCharacter)
+    }
+    
+    func test_isChineseCharacter_falss() {
+        let character: Character = "c"
+        XCTAssertFalse(character.isChineseCharacter)
     }
 }
