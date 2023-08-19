@@ -22,17 +22,36 @@ public extension String {
     }
 
     var pinyin: String {
-        let stringReference = NSMutableString(string: self) as CFMutableString
-        CFStringTransform(stringReference, nil, kCFStringTransformToLatin, false)
+        let string = NSMutableString(string: self)
+        string
+            .applyTransform(
+                .toLatin,
+                reverse: false,
+                range: .init(location: 0, length: string.length),
+                updatedRange: nil
+            )
 
-        return stringReference as String
+        return string as String
     }
 
     var romanized: String {
-        let stringReference = NSMutableString(string: self) as CFMutableString
-        CFStringTransform(stringReference, nil, kCFStringTransformToLatin, false)
-        CFStringTransform(stringReference, nil, kCFStringTransformStripCombiningMarks, false)
+        let string = NSMutableString(string: self)
+        
+        string
+            .applyTransform(
+                .toLatin,
+                reverse: false,
+                range: .init(location: 0, length: string.length),
+                updatedRange: nil
+            )
+        
+        string.applyTransform(
+            .stripCombiningMarks,
+            reverse: false,
+            range: .init(location: 0, length: string.length),
+            updatedRange: nil
+        )
 
-        return stringReference as String
+        return string as String
     }
 }
