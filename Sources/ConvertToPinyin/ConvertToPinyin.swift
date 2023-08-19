@@ -21,6 +21,7 @@ public extension String {
         return false
     }
 
+    #if !os(Linux)
     var pinyin: String {
         let string = NSMutableString(string: self)
         string
@@ -54,4 +55,5 @@ public extension String {
 
         return string as String
     }
+    #endif
 }
