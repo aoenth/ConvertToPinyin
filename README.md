@@ -12,4 +12,10 @@ print(string.romanized)
 
 print(string.pinyin)
 // nǐ hǎo
+
+print(string.containsChineseCharacters)
+// true
+
+let character: Character = "福"
+print(string.isChineseCharacter)
 ```
